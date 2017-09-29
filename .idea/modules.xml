@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/jdk9-demo.iml" filepath="$PROJECT_DIR$/jdk9-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jigsawdemo/jigsawdemo.iml" filepath="$PROJECT_DIR$/jigsawdemo/jigsawdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/moduletest/moduletest.iml" filepath="$PROJECT_DIR$/moduletest/moduletest.iml" />
+    </modules>
+  </component>
+</project>
