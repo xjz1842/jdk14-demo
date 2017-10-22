@@ -7,3 +7,5 @@
 3. jigsaw-test (module system)
 
 4. publisher and subscriber
+
+5.interface  private method
