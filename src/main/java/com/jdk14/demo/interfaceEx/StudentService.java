@@ -1,4 +1,4 @@
-package com.jdk9.demo.interfaceEx;
+package com.jdk14.demo.interfaceEx;
 
 public interface StudentService {
 

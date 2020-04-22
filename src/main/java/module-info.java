@@ -1,3 +1,5 @@
 module tech.ideashare{
-    requires jdk.incubator.httpclient;
+    requires java.net.http;
+    requires java.compiler;
+
 }

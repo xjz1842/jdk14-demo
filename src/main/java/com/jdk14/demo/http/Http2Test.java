@@ -1,17 +1,19 @@
-package com.jdk9.demo.http;
+package com.jdk14.demo.http;
 
-import jdk.incubator.http.HttpClient;
-import jdk.incubator.http.HttpRequest;
-import jdk.incubator.http.HttpResponse;
 
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 
 public class Http2Test {
 
     public static void main(String[] args) {
+
         try {
+
             HttpClient client = HttpClient.newHttpClient();
 
             // GET
@@ -21,7 +23,7 @@ public class Http2Test {
                             .headers("Foo", "foovalue", "Bar", "barvalue")
                             .GET()
                             .build(),
-                    HttpResponse.BodyHandler.asString()
+                    HttpResponse.BodyHandlers.ofString()
             );
             int statusCode = response.statusCode();
             String body = response.body();

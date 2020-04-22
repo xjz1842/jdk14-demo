@@ -1,6 +1,6 @@
-package com.jdk9.demo.interfaceEx.impl;
+package com.jdk14.demo.interfaceEx.impl;
 
-import com.jdk9.demo.interfaceEx.StudentService;
+import com.jdk14.demo.interfaceEx.StudentService;
 
 public class StudentServiceImpl implements StudentService{
 
