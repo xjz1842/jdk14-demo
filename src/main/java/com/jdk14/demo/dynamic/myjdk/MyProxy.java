@@ -1,4 +1,4 @@
-package com.jdk14.demo.dynamic.jdk;
+package com.jdk14.demo.dynamic.myjdk;
 
 import javax.tools.JavaCompiler;
 import javax.tools.StandardJavaFileManager;

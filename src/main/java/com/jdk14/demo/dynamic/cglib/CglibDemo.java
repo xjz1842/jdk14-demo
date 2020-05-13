@@ -1,7 +1,8 @@
 package com.jdk14.demo.dynamic.cglib;
 
 
-import com.jdk14.demo.dynamic.jdk.Zhangsan;
+import com.jdk14.demo.dynamic.myjdk.Man;
+import com.jdk14.demo.dynamic.myjdk.Zhangsan;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
@@ -10,7 +11,7 @@ import java.lang.reflect.Method;
 
 public class CglibDemo {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)throws Throwable {
 
         Enhancer  enhancer = new Enhancer();
         enhancer.setSuperclass(Zhangsan.class);
@@ -18,8 +19,6 @@ public class CglibDemo {
         enhancer.setCallback(new MethodInterceptor() {
             @Override
             public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
-
-                System.out.println(method);
                 System.out.println("before");
                 Object res = methodProxy.invokeSuper(o, args);
                 System.out.println("after");
@@ -29,8 +28,7 @@ public class CglibDemo {
 
         Zhangsan zhangsan = (Zhangsan) enhancer.create();
 
-        zhangsan.findObject();
-
+        zhangsan.toString();
     }
 
 }

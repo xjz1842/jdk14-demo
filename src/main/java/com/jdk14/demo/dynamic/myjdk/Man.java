@@ -1,4 +1,4 @@
-package com.jdk14.demo.dynamic.jdk;
+package com.jdk14.demo.dynamic.myjdk;
 
 
 public interface  Man {

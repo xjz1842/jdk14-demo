@@ -1,4 +1,4 @@
-package com.jdk14.demo.dynamic.jdk;
+package com.jdk14.demo.dynamic.myjdk;
 
 import java.io.*;
 
@@ -63,7 +63,7 @@ public class MyClassLoader extends ClassLoader {
 
     public static void main(String[] args) throws Exception {
 
-        InputStream inputStream = new FileInputStream("/Users/zxj/github/jdk14-demo/src/main/java/com/jdk14/demo/dynamic/jdk/$MyProxy0.class");
+        InputStream inputStream = new FileInputStream("/Users/zxj/github/jdk14-demo/src/main/java/com/jdk14/demo/dynamic/myjdk/$MyProxy0.class");
 
         try (ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
             byte[] data = new byte[4096];

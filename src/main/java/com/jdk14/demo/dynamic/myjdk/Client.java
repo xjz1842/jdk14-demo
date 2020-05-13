@@ -1,4 +1,4 @@
-package com.jdk14.demo.dynamic.jdk;
+package com.jdk14.demo.dynamic.myjdk;
 
 public class Client {
 
@@ -7,7 +7,7 @@ public class Client {
 
         MyHandler myHandler = new MyHandler(man);
 
-        Man proxyMan = (Man)MyProxy.newProxyInstance(new MyClassLoader("/Users/zxj/github/jdk14-demo/src/main/java/com/jdk14/demo/dynamic/jdk","com.jdk14.demo.dynamic.jdk"),Man.class,myHandler);
+        Man proxyMan = (Man)MyProxy.newProxyInstance(new MyClassLoader("/Users/zxj/github/jdk14-demo/src/main/java/com/jdk14/demo/dynamic/myjdk","com.jdk14.demo.dynamic.myjdk"),Man.class,myHandler);
 
         System.out.println(proxyMan.getClass().getName());
 
