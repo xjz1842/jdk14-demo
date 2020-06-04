@@ -8,7 +8,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-public class Http2Test {
+public class Http2GetTest {
 
     public static void main(String[] args) {
 
@@ -20,7 +20,7 @@ public class Http2Test {
             HttpResponse<String> response = client.send(
                     HttpRequest
                             .newBuilder(new URI("http://www.foo.com/"))
-                            .headers("Foo", "foovalue", "Bar", "barvalue")
+                            .headers("MethodHandleTest", "foovalue", "Bar", "barvalue")
                             .GET()
                             .build(),
                     HttpResponse.BodyHandlers.ofString()

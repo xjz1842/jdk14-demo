@@ -1,7 +1,6 @@
 package com.jdk14.demo.dynamic.cglib;
 
 
-import com.jdk14.demo.dynamic.myjdk.Man;
 import com.jdk14.demo.dynamic.myjdk.Zhangsan;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;

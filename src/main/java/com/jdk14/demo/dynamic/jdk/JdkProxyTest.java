@@ -3,12 +3,11 @@ package com.jdk14.demo.dynamic.jdk;
 import com.jdk14.demo.dynamic.myjdk.Man;
 import com.jdk14.demo.dynamic.myjdk.Zhangsan;
 
-import java.lang.invoke.MethodHandle;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
-public class TestMain {
+public class JdkProxyTest {
 
     public static void main(String[] args) throws Throwable{
          Method method = Class.forName("com.jdk14.demo.dynamic.myjdk.Zhangsan").getMethod("findObject");
@@ -20,20 +19,20 @@ public class TestMain {
              method.invoke(zhangsan);
          }
 
-//        System.setProperty("dk.proxy.ProxyGenerator.saveGeneratedFiles","true");
-//        //2.Method
-//        Man man = new Zhangsan();
-//        InvocationHandler handler = new JdkHandler(man);
-//         Man man1 = (Man)Proxy.newProxyInstance(TestMain.class.getClassLoader(),new Class[]{Man.class},handler);
-//         man1.findObject();
+        System.setProperty("dk.proxy.ProxyGenerator.saveGeneratedFiles","true");
 
-//        //3.Method
-//        for(int i=0; i <=16; i++) {
-//            if(16 == i) {
-//                Class.forName("com.jdk14.demo.dynamic.myjdk.Zhangsan").getField("test");
-//            }
-//        }
+        //2.Method
+        Man man = new Zhangsan();
+        InvocationHandler handler = new JdkHandler(man);
+        Man man1 = (Man)Proxy.newProxyInstance(JdkProxyTest.class.getClassLoader(),new Class[]{Man.class},handler);
+        man1.findObject();
 
+        //3.Method
+        for(int i=0; i <=16; i++) {
+            if(16 == i) {
+                Class.forName("com.jdk14.demo.dynamic.myjdk.Zhangsan").getField("test");
+            }
+        }
     }
 
 

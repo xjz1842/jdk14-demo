@@ -1,4 +1,4 @@
-package com.jdk14.demo.dynamic.jdk;
+package com.jdk14.demo.http;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -12,7 +12,7 @@ import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BuildTestSet {
+public class HttpPostTest {
 
     static int count = 0;
 

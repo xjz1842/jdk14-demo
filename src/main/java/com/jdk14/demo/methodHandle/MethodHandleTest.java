@@ -5,15 +5,13 @@ import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodType;
 import java.lang.reflect.Method;
-import java.util.Arrays;
-import java.util.stream.Stream;
 
 import static java.lang.invoke.MethodType.methodType;
 
-public class Foo {
+public class MethodHandleTest {
 
     private static void bar(Object o) {
-        new Exception().printStackTrace();
+//        new Exception().printStackTrace();
     }
 
     public static MethodHandles.Lookup lookup() {
@@ -22,9 +20,9 @@ public class Foo {
 
     public static void main(String[] args) throws Throwable {
         // 获取方法句柄的不同方式
-        MethodHandles.Lookup l = Foo.lookup();
+        MethodHandles.Lookup l = MethodHandleTest.lookup();
         // 具备Foo类的访问权限
-        Method m = Foo.class.getDeclaredMethod("bar", Object.class);
+        Method m = MethodHandleTest.class.getDeclaredMethod("bar", Object.class);
 
         MethodHandle mh0 = l.unreflect(m);
 
@@ -32,7 +30,7 @@ public class Foo {
 
         MethodType t = methodType(void.class, Object.class);
 
-        MethodHandle mh1 = l.findStatic(Foo.class, "bar", t);
+        MethodHandle mh1 = l.findStatic(MethodHandleTest.class, "bar", t);
 
         //BindTo
         StringWriter swr = new StringWriter();
@@ -55,9 +53,33 @@ public class Foo {
             }
             mh1.invokeExact(new Object());
         }
-
-
+        //测试性能
+         test();
     }
 
+    private static void test() throws Throwable{
+        //   System.setProperty("sun.reflect.noInflation","true");
+        long start = System.currentTimeMillis();
+
+        MethodHandleTest methodHandle = new MethodHandleTest();
+
+        MethodHandles.Lookup l = MethodHandles.lookup();
+        MethodType t = MethodType.methodType(void.class, Object.class);
+        MethodHandle mh = l.findVirtual(MethodHandleTest.class, "bar", t);
+
+        MethodHandle methodHandle1 = mh.bindTo(methodHandle);
+        for (int i = 0; i < 1000; i++) {
+            methodHandle1.invokeExact(new Object());
+        }
+
+        Method method = MethodHandleTest.class.getDeclaredMethod("bar", Object.class);
+
+        for (int i = 0; i < 100; i++) {
+            method.invoke(methodHandle, new Object());
+        }
+        long end = System.currentTimeMillis();
+
+        System.out.println(end - start);
+    }
 
 }
