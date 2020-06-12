@@ -17,7 +17,7 @@ public class ThreadLocalLeakTest {
             poolExecutor.execute(new Runnable() {
                 public void run() {
                     // (4)
-                    localVariable.set(new Long(1));
+                    localVariable.set(Long.valueOf(1));
                     // (5)
                     System.out.println("use local varaible");
                     localVariable.remove();
@@ -30,6 +30,7 @@ public class ThreadLocalLeakTest {
         System.out.println("pool execute over");
 
     }
+
 }
 
 

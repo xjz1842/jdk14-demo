@@ -19,13 +19,13 @@ public class LeakyBucketDemo {
         //计算出水的数量
         long now = System.currentTimeMillis();
 
-        int out = (int)((now - time)/700 * rate);
+        int out = (int)((now - time)/1000 * rate);
 
         //漏水后的剩余
-       water =  Math.max(0,water - out);
+       water =  Math.max(0,water - out); // 先执行漏水，计算剩余水量
        time = now;
 
-       if((water + 1) < size){
+       if((water + 1) < size){ // 尝试加水
            ++water;
            return true;
        }else{
