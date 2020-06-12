@@ -10,6 +10,12 @@ import java.lang.reflect.Proxy;
 public class JdkProxyTest {
 
     public static void main(String[] args) throws Throwable{
+
+
+//        for(int i =0; i< 17; i++){
+//            Class.forName("com.jdk14.demo.dynamic.myjdk.Zhangsan").getConstructor().newInstance();
+//        }
+
          Method method = Class.forName("com.jdk14.demo.dynamic.myjdk.Zhangsan").getMethod("findObject");
 
          Zhangsan zhangsan = new Zhangsan();
@@ -19,7 +25,7 @@ public class JdkProxyTest {
              method.invoke(zhangsan);
          }
 
-        System.setProperty("dk.proxy.ProxyGenerator.saveGeneratedFiles","true");
+//        System.setProperty("dk.proxy.ProxyGenerator.saveGeneratedFiles","true");
 
         //2.Method
         Man man = new Zhangsan();
